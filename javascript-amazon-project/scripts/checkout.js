@@ -15,9 +15,9 @@ cart.forEach((cartItem) => {
         }
     });
 
-    cartSummaryHTML += 
-    `
-    <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+    cartSummaryHTML += `
+    <div class="cart-item-container
+     js-cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">
             Delivery date: Tuesday, June 21
         </div>
@@ -110,3 +110,12 @@ document.querySelectorAll('.js-delete-link')
             container.remove();
         });
     });
+
+let cartQuantity = 0;
+
+cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+});
+
+document.querySelector('.js-return-to-home-link')
+    .innerHTML = `${cartQuantity} items`;
